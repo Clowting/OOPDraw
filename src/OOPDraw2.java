@@ -130,12 +130,9 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		repaint();
 	}
 
-	/*
+	/**
 	 * Mouse Drag i.e. Left mouse button is down and mouse is being moved
-	 * 
-	 * @see
-	 * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent
-	 * )
+	 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
 	 */
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
@@ -155,9 +152,8 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		// Nothing TO DO in this method
 	}
 
-	/*
+	/**
 	 * Paint method overridden for custom rendering of the screen
-	 * 
 	 * @see java.awt.Container#paint(java.awt.Graphics)
 	 */
 	@Override
@@ -172,8 +168,8 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		}
 	}
 
-	/*
-	 * method initializes GUI components
+	/**
+	 * Method initializes GUI components
 	 */
 	private void initGUI() {
 		setSize(800, 600);

@@ -1,8 +1,6 @@
 package Shapes;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import java.awt.*;
 
 // Class cRect for drawing Rects is derived
 // from our 'base class' cShape
