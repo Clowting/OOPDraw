@@ -1,20 +1,37 @@
 package Shapes;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
-// Class cRect for drawing Rects is derived
-// from our 'base class' cShape
-
+/**
+ * Creates and draws the rectangle shape
+ */
 public class RectShape extends Shape {
 
-	public RectShape(Color color) {
-		super(color);
+	private static final Color color = Color.GREEN;
+	private Rectangle2D rectangle;
+
+	public RectShape() {
+		rectangle = new Rectangle2D.Double();
+	}
+
+	@Override
+	public void setStartPoint(int x, int y) {
+		startPointX = x;
+		startPointY = y;
+	}
+
+	@Override
+	public void setEndPoint(int x, int y) {
+		endPointX = x;
+		endPointY = y;
 	}
 
 	@Override
 	public void Draw(Graphics2D g) {
-		super.Draw(g);
-		g.drawRect(startPoint.x, startPoint.y, width, height);
-	}
+		rectangle.setFrameFromDiagonal(startPointX, startPointY, endPointX, endPointY);
 
+		g.setColor(color);
+		g.draw(rectangle);
+	}
 }

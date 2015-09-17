@@ -1,20 +1,37 @@
 package Shapes;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 /**
- *  Class Shapes.LineShape for drawing lines is
- *  derived from our 'base' class Shapes.Shape
+ * Creates and draws the line shape
  */
 public class LineShape extends Shape {
 
-	public LineShape(Color color) {
-		super(color);
+	private static final Color color = Color.RED;
+	private Line2D line;
+
+	public LineShape() {
+		line = new Line2D.Double();
+	}
+
+	@Override
+	public void setStartPoint(int x, int y) {
+		startPointX = x;
+		startPointY = y;
+	}
+
+	@Override
+	public void setEndPoint(int x, int y) {
+		endPointX = x;
+		endPointY = y;
 	}
 
 	@Override
 	public void Draw(Graphics2D g) {
-		super.Draw(g);
-		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		line.setLine(startPointX, startPointY, endPointX, endPointY);
+
+		g.setColor(color);
+		g.draw(line);
 	}
 }

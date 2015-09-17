@@ -1,21 +1,38 @@
 package Shapes;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 /**
- *  Class Shapes.OvalShape for drawing ovals is derived
- *  from our 'base class' AbstratShape
+ * Creates and draws the oval shape
  */
 public class OvalShape extends Shape {
 
-	public OvalShape(Color color) {
-		super(color);
+	private static final Color color = Color.BLUE;
+	private Ellipse2D oval;
+
+	public OvalShape() {
+		oval = new Ellipse2D.Double();
+	}
+
+	@Override
+	public void setStartPoint(int x, int y) {
+		startPointX = x;
+		startPointY = y;
+	}
+
+	@Override
+	public void setEndPoint(int x, int y) {
+		endPointX = x;
+		endPointY = y;
 	}
 
 	@Override
 	public void Draw(Graphics2D g) {
-		super.Draw(g);
-		g.drawOval(startPoint.x, startPoint.y, width, height);
+		oval.setFrameFromDiagonal(startPointX, startPointY, endPointX, endPointY);
+
+		g.setColor(color);
+		g.draw(oval);
 	}
 
 }
