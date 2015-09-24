@@ -1,7 +1,4 @@
-import Composers.LineComposer;
-import Composers.OvalComposer;
-import Composers.RectComposer;
-import Composers.ShapeComposer;
+import Composers.*;
 import Shapes.Shape;
 
 import java.awt.Button;
@@ -28,11 +25,13 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 
 	private static final long serialVersionUID = 4695753453561082104L;
 	private HashSet<Shape> shapes;
+	private ComposerFactory composerFactory;
 	private ShapeComposer currentComposer;
 
 	public OOPDraw2() {
 		shapes = new HashSet<Shape>();
-		currentComposer = new LineComposer();
+		composerFactory = new ComposerFactory();
+		currentComposer = composerFactory.getShapeComposer("Line");
 		initGUI();
 	}
 
@@ -108,35 +107,22 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 	 */
 	private void initGUI() {
 		setSize(800, 600);
-		setTitle("POSE 2.0 hairy drawing tool");
+		setTitle("OOPDraw");
 		setLayout(new FlowLayout());
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		// Create and Add the buttons
-		Button btnLine = new Button("Line");
-		btnLine.addActionListener(new ActionListener() {
+		for (String composerName : composerFactory.listComposerNames()) {
+			Button btn = new Button(composerName);
+			btn.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					currentComposer = composerFactory.getShapeComposer(composerName);
+				}
+			});
+			add(btn);
+		}
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new LineComposer();
-			}
-		});
-		Button btnOval = new Button("Oval");
-		btnOval.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new OvalComposer();
-			}
-		});
-		Button btnRect = new Button("Rectangle");
-		btnRect.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				currentComposer = new RectComposer();
-			}
-		});
 		Button btnClear = new Button("Clear");
 		btnClear.addActionListener(new ActionListener() {
 
@@ -149,9 +135,6 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 				repaint();
 			}
 		});
-		add(btnLine);
-		add(btnOval);
-		add(btnRect);
 		add(btnClear);
 	}
 
