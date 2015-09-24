@@ -1,6 +1,6 @@
-package Composers;
+package composers;
 
-import Shapes.OvalShape;
+import shapes.OvalShape;
 
 /**
  * Composes the oval shape

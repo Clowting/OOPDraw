@@ -1,6 +1,6 @@
-package Composers;
+package composers;
 
-import Shapes.RectShape;
+import shapes.RectShape;
 
 /**
  * Composes the rectangle shape

@@ -1,6 +1,6 @@
-package Composers;
+package composers;
 
-import Shapes.Shape;
+import shapes.Shape;
 
 /**
  * Composes the shapes

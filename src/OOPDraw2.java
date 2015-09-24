@@ -1,5 +1,5 @@
-import Composers.*;
-import Shapes.Shape;
+import composers.*;
+import shapes.Shape;
 
 import java.awt.Button;
 import java.awt.Color;

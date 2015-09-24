@@ -1,6 +1,6 @@
-package Composers;
+package composers;
 
-import Shapes.LineShape;
+import shapes.LineShape;
 
 /**
  * Composes the line shape
