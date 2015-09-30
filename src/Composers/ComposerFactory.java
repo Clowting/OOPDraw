@@ -16,6 +16,7 @@ public class ComposerFactory {
 		composers.put("Line", new LineComposer());
 		composers.put("Oval", new OvalComposer());
 		composers.put("Rect", new RectComposer());
+		composers.put("Stupid Shape", new StupidShapeComposer());
 
 	}
 

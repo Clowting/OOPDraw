@@ -13,7 +13,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.HashSet;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Program for drawing shapes
@@ -108,9 +108,12 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 	private void initGUI() {
 		setSize(800, 600);
 		setTitle("OOPDraw");
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
+
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+
 		// Create and Add the buttons
 		for (String composerName : composerFactory.listComposerNames()) {
 			Button btn = new Button(composerName);
