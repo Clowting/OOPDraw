@@ -25,13 +25,10 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 
 	private static final long serialVersionUID = 4695753453561082104L;
 	private HashSet<Shape> shapes;
-	private ComposerFactory composerFactory;
 	private ShapeComposer currentComposer;
 
 	public OOPDraw2() {
 		shapes = new HashSet<Shape>();
-		composerFactory = new ComposerFactory();
-		currentComposer = composerFactory.getShapeComposer("Line");
 		initGUI();
 	}
 
@@ -110,6 +107,9 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		setTitle("OOPDraw");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
+
+		ComposerFactory composerFactory = new ComposerFactory();
+		currentComposer = composerFactory.getShapeComposer("Line");
 
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
