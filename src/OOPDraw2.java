@@ -108,7 +108,7 @@ public class OOPDraw2 extends JFrame implements MouseListener, MouseMotionListen
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
 
-		ComposerFactory composerFactory = new ComposerFactory();
+		ComposerFactory composerFactory = ComposerFactory.getInstance();
 		currentComposer = composerFactory.getShapeComposer("Line");
 
 		this.addMouseListener(this);

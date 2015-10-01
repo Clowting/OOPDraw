@@ -8,9 +8,10 @@ import java.util.Set;
  */
 public class ComposerFactory {
 
+	private static ComposerFactory _instance;
 	private HashMap<String, ShapeComposer> composers;
 
-	public ComposerFactory() {
+	private ComposerFactory() {
 		composers = new HashMap<>();
 
 		composers.put("Line", new LineComposer());
@@ -18,6 +19,13 @@ public class ComposerFactory {
 		composers.put("Rect", new RectComposer());
 		composers.put("Stupid Shape", new StupidShapeComposer());
 
+	}
+
+	public static ComposerFactory getInstance() {
+		if(_instance == null) {
+			_instance = new ComposerFactory();
+		}
+		return _instance;
 	}
 
 	/**
