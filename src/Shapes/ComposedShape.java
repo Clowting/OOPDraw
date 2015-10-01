@@ -22,6 +22,14 @@ public class ComposedShape extends Shape {
 		shapes.add(shape);
 	}
 
+	/**
+	 * Remove a shape from the composed shape
+	 * @param shape The shape to be removed
+	 */
+	public void removeShape(Shape shape) {
+		shapes.remove(shape);
+	}
+
 	@Override
 	public void setStartPoint(int x, int y) {
 		for(Shape shape : shapes) {
